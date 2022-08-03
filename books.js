@@ -68,10 +68,19 @@ function addBookToLibrary() {
   cardButton.className = 'card-button';
   cardButton.type = 'button';
   cardButton.value = 'Delete Book';
-  cardButton.addEventListener('click', () => {cards.remove()});
+  cardButton.data = currentIndex;
   listOfCards[listOfCards.length - 1].appendChild(cardButton);
 
-
 }
+
+// Deleting Book
+function removeCard() {
+  document.getElementsByClassName('cards');
+  cards.remove();
+}
+// STUCK HERE
+cardButtons = document.getElementsByClassName('card-button');
+cardButtons.addEventListener('click', () => removeCard());
+
 
 console.log('-------')
