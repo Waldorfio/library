@@ -1,7 +1,8 @@
 let myLibrary = [];     // Array 'library' to hold book objects
 
-// Constructor to hold books
-function Books(title,author,pages,read) {
+// An empty constructor object to hold each books contents.
+// For the purpose of later storage into the myLibrary array.
+function Books(title, author, pages, read) {
     this.title = title
     this.author = author
     this.pages = pages
@@ -15,31 +16,27 @@ function Books(title,author,pages,read) {
     // }
 }
 
-// Function to add books to constructor
-function addBookToLibrary(title,author,pages,read) {
-    const newBook = new Books(title,author,pages,read);
-    myLibrary.push(newBook);
-}
-
 // Extract form data
 submitButton = document.getElementById('submit-button');
-submitButton.addEventListener('click', () => addToPage());
+submitButton.addEventListener('click', () => addBookToLibrary());
 
-function addToPage() {
+function addBookToLibrary() {
+
   // Grabs input values from form //
   inputTitle = document.getElementById('title-input').value
   inputAuthor = document.getElementById('author-input').value
   inputPage = document.getElementById('pages-input').value
   inputRead = document.getElementById('read-input').value
 
-  addBookToLibrary(inputTitle,inputAuthor,inputPage,inputRead);   // Append book to library array
+  const newBook = new Books(inputTitle,inputAuthor,inputPage,inputRead);   // Function to create new book object
+  myLibrary.push(newBook);                                                 // Append the book object to the empty array
 
   // Add a new card class to the content-container parent
   cards = document.createElement('div');
   cards.className = 'cards';
   document.getElementById('content-container').appendChild(cards);
 
-  listOfCards = document.getElementsByClassName('cards');         // Get the latest list of cards (to append children to later)
+  listOfCards = document.getElementsByClassName('cards');                 // Get the latest list of cards (to append children to later)
 
   // Create a new card-title element, within the card class
   cardTitle = document.createElement('div');
