@@ -15,23 +15,28 @@
       </div>
 
       <div class="sidebar-container">
-        <form action='' method='get' class='form-container'>
+        <form onsubmit="return false" method='get' class='form-container'>
           <div class="input1">
             <label for="title-input"></label>
-            <input id="title-input" type="text" name="title-id" placeholder="Enter Book Title here" required>
+            <input id="title-input" type="text" name="title-input" placeholder="Enter Book Title here" required>
           </div>
 
           <div class="input2">
             <label for="author-input"></label>
-            <input id="author-input" type="text" name="title-id" placeholder="Enter Name of Author here" required>
+            <input id="author-input" type="text" name="author-input" placeholder="Enter Name of Author here" required>
           </div>
 
           <div class="input3">
             <label for="pages-input"></label>
-            <input id="pages-input" type="number" name="title-id" placeholder="Enter Number of Pages here" required>
+            <input id="pages-input" type="number" name="pages-input" placeholder="Enter Number of Pages here" required>
           </div>
 
-          <button id="submit-button" type="submit">Add Book</button>
+          <div class="input4">
+            <label for="read-input"></label>
+            <input id="read-input" type="checkbox" name="read-input" required>
+          </div>
+
+          <input id="submit-button" type="submit" value="Add Book"></input>
 
         </form>
       </div>

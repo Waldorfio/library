@@ -1,5 +1,6 @@
-let myLibrary = [];
+let myLibrary = [];     // Array 'library' to hold book objects
 
+// Constructor to hold books
 function Books(title,author,pages,read) {
     this.title = title
     this.author = author
@@ -14,6 +15,7 @@ function Books(title,author,pages,read) {
     }
 }
 
+// Function to add books to constructor
 function addBookToLibrary(title,author,pages,read) {
     const newBook = new Books(title,author,pages,read);
     myLibrary.push(newBook);
@@ -25,13 +27,29 @@ addBookToLibrary('got2','grrm2',344,true);
 addBookToLibrary('got3','grrm3',444,false);
 addBookToLibrary('got4','grrm4',544,true);
 
+// Enables form interactivity
+// inputTitle = document.querySelector('#title-input').value
+// inputAuthor = document.querySelector('#author-input').value
+// inputPage = document.querySelector('#pages-input').value
+// inputRead = document.querySelector('#read-input').value
 
-for (i=0; i<(myLibrary.length-1); i++) {
+// Creates new books
+// for (i=0; i<(myLibrary.length-1); i++) {
 
-  inputTitle = myLibrary[i].title;
-  inputAuthor = myLibrary[i].Author;
-  inputPage = myLibrary[i].pages;
-  inputRead = myLibrary[i].read;
+  // inputTitle = myLibrary[i].title;
+  // inputAuthor = myLibrary[i].Author;
+  // inputPage = myLibrary[i].pages;
+  // inputRead = myLibrary[i].read;
+
+submitButton = document.getElementById('submit-button');
+submitButton.addEventListener('click', () => addToPage());
+
+function addToPage() {
+  inputTitle = document.getElementById('title-input').value
+  inputAuthor = document.getElementById('author-input').value
+  inputPage = document.getElementById('pages-input').value
+  inputRead = true;
+  console.log(inputTitle,inputAuthor,inputPage,inputRead);
 
   cards = document.createElement('div');
   cards.className = 'cards';
