@@ -30,6 +30,7 @@ function addBookToLibrary() {
 
   const newBook = new Books(inputTitle,inputAuthor,inputPage,inputRead);   // Function to create new book object
   myLibrary.push(newBook);                                                 // Append the book object to the empty array
+  currentIndex = myLibrary.length - 1;
 
   // Add a new card class to the content-container parent
   cards = document.createElement('div');
@@ -38,35 +39,39 @@ function addBookToLibrary() {
 
   listOfCards = document.getElementsByClassName('cards');                 // Get the latest list of cards (to append children to later)
 
-  // Create a new card-title element, within the card class
+  // Create a new "title" element, within the card class
   cardTitle = document.createElement('div');
   cardTitle.className = 'card-title';
   cardTitle.innerHTML = inputTitle;
   listOfCards[listOfCards.length - 1].appendChild(cardTitle);
 
-  // Create a new card-author element, within the card class
+  // Create a new "author" element, within the card class
   cardAuthor = document.createElement('div');
   cardAuthor.className = 'card-author';
   cardAuthor.innerHTML = inputAuthor;
   listOfCards[listOfCards.length - 1].appendChild(cardAuthor);
 
-  // Create a new card-page element, within the card class
+  // Create a new "page" element, within the card class
   cardPage = document.createElement('div');
   cardPage.className = 'card-page';
   cardPage.innerHTML = inputPage;
   listOfCards[listOfCards.length - 1].appendChild(cardPage);
 
-  // Create a new card-read element, within the card class
+  // Create a new "read" element, within the card class
   cardRead = document.createElement('div');
   cardRead.className = 'card-read';
   cardRead.innerHTML = inputRead;
   listOfCards[listOfCards.length - 1].appendChild(cardRead);
 
-  // Create a new card-button element, within the card class
-  cardButton = document.createElement('button');
+  // Create a new "remove button" element, within the card class
+  cardButton = document.createElement('input');
   cardButton.className = 'card-button';
-  cardButton.innerHTML = 'Remove';
+  cardButton.type = 'button';
+  cardButton.value = 'Delete Book';
+  cardButton.addEventListener('click', () => {cards.remove()});
   listOfCards[listOfCards.length - 1].appendChild(cardButton);
+
+
 }
 
 console.log('-------')
