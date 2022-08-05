@@ -6,3 +6,4 @@ Challenges Faced:
 - Correctly passing form inputs
 - Factoring code into objects, as opposed consecutive variable declarations
 - Storing book data to reference later
+- Making effective use of the 'this' and 'bind' parameters, in the correct context
