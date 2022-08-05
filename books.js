@@ -22,6 +22,12 @@ function Books(title, author, pages, read) {
 submitButton = document.getElementById('submit-button');
 submitButton.addEventListener('click', () => addBookToLibrary());
 
+function deleteButton(cardButton) {
+  myLibrary[i].remove();
+  cardButton.parentElement.remove();
+  console.log(myLibrary)
+}
+
 function addBookToLibrary() {
 
   // Grabs input values from form //
@@ -71,18 +77,13 @@ function addBookToLibrary() {
 
   // Create a new "remove button" element, within the card class
   cardButton = document.createElement('input');
-  cardButton.id = 'delete-id-'+currentIndex;
+  // cardButton.id = 'delete-id-'+currentIndex;
   cardButton.className = 'card-button';
   cardButton.type = 'button';
   cardButton.value = 'Delete Book';
+  // cardButton.addEventListener('mouseenter', deleteButton.bind(this,cardButton));
+  cardButton.addEventListener("click", deleteButton.bind(this,cardButton));     // Binds the function deleteButton to this specific element
   listOfCards[listOfCards.length - 1].appendChild(cardButton);
-  cardButton.addEventListener("click", () => deleteButton());
-}
-
-function deleteButton() {
-  i = currentIndex;
-  myLibrary[i].remove();
-  cardButton.parentElement.remove();
 }
   
 console.log('-------')
