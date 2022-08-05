@@ -1,3 +1,5 @@
+console.clear();
+
 let myLibrary = [];     // Array 'library' to hold book objects
 
 // An empty constructor object to hold each books contents.
@@ -27,8 +29,8 @@ function addBookToLibrary() {
   inputAuthor = document.getElementById('author-input').value
   inputPage = document.getElementById('pages-input').value
   inputRead = document.getElementById('read-input').checked
-  if (inputRead == true) {inputRead = 'Read'};
-  if (inputRead == false) {inputRead = 'Unread'};
+  // if (inputRead == true) {inputRead = 'Read'};
+  // if (inputRead == false) {inputRead = 'Unread'};
 
   const newBook = new Books(inputTitle,inputAuthor,inputPage,inputRead);   // Function to create new book object
   myLibrary.push(newBook);                                                 // Append the book object to the empty array
@@ -58,31 +60,29 @@ function addBookToLibrary() {
   cardPage.className = 'card-page';
   cardPage.innerHTML = inputPage;
   listOfCards[listOfCards.length - 1].appendChild(cardPage);
-
+  
   // Create a new "read" element, within the card class
-  cardRead = document.createElement('div');
-  cardRead.className = 'card-read';
-  cardRead.innerHTML = inputRead;
+  cardRead = document.createElement('input');
+  cardRead.type = 'checkbox';
+  cardRead.name = 'card-read';
+  cardRead.id = 'card-read';
+  cardRead.checked = inputRead;
   listOfCards[listOfCards.length - 1].appendChild(cardRead);
 
   // Create a new "remove button" element, within the card class
   cardButton = document.createElement('input');
+  cardButton.id = 'delete-id-'+currentIndex;
   cardButton.className = 'card-button';
   cardButton.type = 'button';
   cardButton.value = 'Delete Book';
-  cardButton.data = currentIndex;
   listOfCards[listOfCards.length - 1].appendChild(cardButton);
-
+  cardButton.addEventListener("click", () => deleteButton());
 }
 
-// // Deleting Book
-// function removeCard() {
-//   document.getElementsByClassName('cards');
-//   cards.remove();
-// }
-// // STUCK HERE
-// cardButtons = document.getElementsByClassName('card-button');
-// cardButtons.addEventListener('click', () => removeCard());
-
-
+function deleteButton() {
+  i = currentIndex;
+  myLibrary[i].remove();
+  cardButton.parentElement.remove();
+}
+  
 console.log('-------')

@@ -63,7 +63,7 @@ body,html {
             border-radius: 15px;
             box-shadow: 5px 9px rgb(171, 186, 201);
         }
-            .card-title, .card-author, .card-page, .card-read, .card-button {
+            .card-title, .card-author, .card-page, .card-button {
                 justify-self: center;
                 align-self: center;
             }
@@ -72,7 +72,7 @@ body,html {
                 font-size: 1.1rem;
                 text-transform: uppercase;
             }
-            
+
 /* Button Styling */
 #submit-button, .card-button {
     border-radius: 5px;
