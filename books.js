@@ -22,10 +22,15 @@ function Books(title, author, pages, read) {
 submitButton = document.getElementById('submit-button');
 submitButton.addEventListener('click', () => addBookToLibrary());
 
-function deleteButton(cardButton) {
-  myLibrary[i].remove();
+function deleteButton(cardButton,currentIndex) {
+  myLibrary.splice(currentIndex, 1);
   cardButton.parentElement.remove();
-  console.log(myLibrary)
+  console.log(myLibrary);
+}
+
+function toggleRead(cardRead,currentIndex,inputRead) {       // Change this.read value in myLibrary if tick changes for each card
+  myLibrary[currentIndex].read = cardRead.checked;    // Change the tick from false -> true, or true -> false, in the array
+  console.log(myLibrary);
 }
 
 function addBookToLibrary() {
@@ -35,8 +40,6 @@ function addBookToLibrary() {
   inputAuthor = document.getElementById('author-input').value
   inputPage = document.getElementById('pages-input').value
   inputRead = document.getElementById('read-input').checked
-  // if (inputRead == true) {inputRead = 'Read'};
-  // if (inputRead == false) {inputRead = 'Unread'};
 
   const newBook = new Books(inputTitle,inputAuthor,inputPage,inputRead);   // Function to create new book object
   myLibrary.push(newBook);                                                 // Append the book object to the empty array
@@ -71,8 +74,9 @@ function addBookToLibrary() {
   cardRead = document.createElement('input');
   cardRead.type = 'checkbox';
   cardRead.name = 'card-read';
-  cardRead.id = 'card-read';
+  cardRead.id = 'tickbox-'+currentIndex;
   cardRead.checked = inputRead;
+  cardRead.addEventListener("click", toggleRead.bind(this,cardRead,currentIndex,inputRead));
   listOfCards[listOfCards.length - 1].appendChild(cardRead);
 
   // Create a new "remove button" element, within the card class
@@ -82,8 +86,10 @@ function addBookToLibrary() {
   cardButton.type = 'button';
   cardButton.value = 'Delete Book';
   // cardButton.addEventListener('mouseenter', deleteButton.bind(this,cardButton));
-  cardButton.addEventListener("click", deleteButton.bind(this,cardButton));     // Binds the function deleteButton to this specific element
+  cardButton.addEventListener("click", deleteButton.bind(this,cardButton,currentIndex));     // Binds the function deleteButton to this specific element
   listOfCards[listOfCards.length - 1].appendChild(cardButton);
+
+  console.log(myLibrary);
 }
   
 console.log('-------')
