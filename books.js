@@ -26,7 +26,9 @@ function addBookToLibrary() {
   inputTitle = document.getElementById('title-input').value
   inputAuthor = document.getElementById('author-input').value
   inputPage = document.getElementById('pages-input').value
-  inputRead = document.getElementById('read-input').value
+  inputRead = document.getElementById('read-input').checked
+  if (inputRead == true) {inputRead = 'Read'};
+  if (inputRead == false) {inputRead = 'Unread'};
 
   const newBook = new Books(inputTitle,inputAuthor,inputPage,inputRead);   // Function to create new book object
   myLibrary.push(newBook);                                                 // Append the book object to the empty array
@@ -73,14 +75,14 @@ function addBookToLibrary() {
 
 }
 
-// Deleting Book
-function removeCard() {
-  document.getElementsByClassName('cards');
-  cards.remove();
-}
-// STUCK HERE
-cardButtons = document.getElementsByClassName('card-button');
-cardButtons.addEventListener('click', () => removeCard());
+// // Deleting Book
+// function removeCard() {
+//   document.getElementsByClassName('cards');
+//   cards.remove();
+// }
+// // STUCK HERE
+// cardButtons = document.getElementsByClassName('card-button');
+// cardButtons.addEventListener('click', () => removeCard());
 
 
 console.log('-------')
