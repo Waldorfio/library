@@ -2,8 +2,8 @@
 An interactive library built using Javascript, HTML and CSS.
 
 Goal:
-- To practice javascript object, constructor and prototype fundamentals.
-- To create a functioning, well-styled, app useable in a real scenario.
+- To practice javascript object, constructor and prototype fundamentals
+- To create a functioning, well-styled, app useable in a real scenario
 
 Challenges Faced:
 - Correctly passing form inputs into constructor object
