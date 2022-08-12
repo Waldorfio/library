@@ -4,18 +4,13 @@ let myLibrary = [];     // Array 'library' to hold book objects
 
 // An empty constructor object to hold each books contents.
 // For the purpose of later storage into the myLibrary array.
-function Books(title, author, pages, read) {
+class Books {
+  constructor(title, author, pages, read) {
     this.title = title
     this.author = author
     this.pages = pages
     this.read = read
-    // this.progress = function() {
-    //   progress = ''
-    //   if ((pages-read) == 0) {progress = 'finished'}
-    //   if ((pages-read) != 0) {progress = 'in progress'}
-    //   if ((pages-read) == pages) {progress = 'not read yet'}
-    // return progress
-    // }
+  }
 }
 
 // Extract form data
