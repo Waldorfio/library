@@ -1,5 +1,7 @@
 # Project: Library
-An interactive library built using Javascript, HTML and CSS.
+### [Live Link 👈](https://waldorfio.github.io/library/)
+An interactive book library app where you can neatly store and track your books in a neat little environment. 
+Built using vanilla JavaScript ES6, CSS3, and HTML5. 
 
 Goal:
 - To practice using constructors and classes in an applicable scenario
