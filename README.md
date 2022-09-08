@@ -1,6 +1,6 @@
 # Project: Library
 ### [Live Link 👈](https://waldorfio.github.io/library/)
-An interactive book library app where you can neatly store and track your books in a neat little environment. 
+An interactive book library app where you can store and track your books in a neat little environment. 
 Built using vanilla JavaScript ES6, CSS3, and HTML5. 
 
 Goal:
